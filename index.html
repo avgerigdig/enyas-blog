@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog ni Enya | Kie and Bean Café</title>
+    <!-- Custom SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23D9A9A9'><path stroke-linecap='round' stroke-linejoin='round' d='M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z' /></svg>">
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a vintage feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Custom styles to define the color palette and apply fonts -->
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background-color: #FDF8F2; /* Cream background */
+            /* Subtle linen texture for a vintage scrapbook feel */
+            background-image: url('https://www.transparenttextures.com/patterns/linen.png');
+        }
+        h1, h2, h3, .pull-quote, .blog-name {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom color definitions for Tailwind */
+        .bg-cream { background-color: #FDF8F2; }
+        .bg-soft-pink { background-color: #FAEBEF; }
+        .text-warm-brown { color: #5C4033; }
+        .border-dusty-rose { border-color: #D9A9A9; }
+        .text-dusty-rose { color: #D9A9A9; }
+
+        /* Image hover effect */
+        figure img {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        figure:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Animated Flourish Divider */
+        .flourish-divider {
+            width: 100px;
+            height: 20px;
+            margin: 2rem auto;
+            stroke: #D9A9A9;
+            stroke-width: 1;
+            fill: none;
+        }
+
+        /* Fade-in animation on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Literary Drop Cap Style */
+        .drop-cap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem; /* 72px */
+            line-height: 0.8;
+            float: left;
+            margin-top: 0.2rem;
+            margin-right: 0.5rem;
+            color: #D9A9A9; /* Dusty Rose */
+        }
+    </style>
+</head>
+<body class="bg-cream text-warm-brown antialiased">
+    
+    <!-- Site Header / Logo -->
+    <header class="py-4 border-b border-dusty-rose/50 sticky top-0 bg-cream/80 backdrop-blur-sm z-10">
+        <div class="container mx-auto max-w-4xl px-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 text-warm-brown hover:text-dusty-rose transition-colors">
+                <!-- SVG Logo Placeholder -->
+                <svg class="w-8 h-8 text-dusty-rose" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z" />
+                </svg>
+                <span class="blog-name font-bold text-xl">Blog ni Enya</span>
+            </a>
+            <nav class="flex items-center gap-4">
+                <a href="#" class="text-sm hover:underline text-warm-brown/80 hover:text-warm-brown">Tahanan</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container mx-auto max-w-4xl px-4 py-8 sm:py-12">
+
+        <!-- Article Header Section -->
+        <div class="text-center mb-10 fade-in-section">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">Kie and Bean Café: Isang Munting Kwento ng Lasa at Inspirasyon</h1>
+            <p class="text-md text-warm-brown mt-4">ni Enya A. Gerigdig</p>
+            <p class="text-sm text-dusty-rose mt-1">Inilathala noong Setyembre 28, 2025</p>
+        </div>
+
+        <!-- Blog Post Body -->
+        <main class="bg-soft-pink rounded-2xl shadow-lg p-6 sm:p-10 md:p-12">
+            
+            <article class="prose lg:prose-lg max-w-none text-warm-brown">
+                
+                <!-- Section 1: Introduction with Alternating Layout -->
+                <div class="fade-in-section flex flex-col md:flex-row items-center gap-8 mb-8">
+                    <div class="md:w-1/2">
+                        <p class="text-lg leading-relaxed drop-cap">
+                            May mga paglalakbay na hindi palaging tungkol sa malayo. Minsan, isang café lang ang sapat upang magturo ng aral. Ganoon ang nangyari noong Setyembre 22, isang payapang Lunes ng hapon dito sa Valencia City. Kasama ko noon ang aking kaibigang si Nieren, at ang simpleng pagbisita namin sa **Kie and Bean Café** ay naging isang karanasang hindi malilimutan. Pagpasok pa lang, sinalubong kami ng mayaman at matamis na halimuyak ng bagong giling na kape mula sa Bukidnon. May malumanay na acoustic OPM na tumutugtog, at ang liwag mula sa bintana ay nagbigay ng init at ginhawa—isang perpektong kanlungan mula sa banayad na init ng hapon.
+                        </p>
+                    </div>
+                    <figure class="md:w-1/2">
+                        <img class="rounded-lg shadow-md w-full h-auto object-cover" src="IMG_6459.jpg" alt="Isang maliwanag at maaliwalas na loob ng Kie and Bean café na may mga modernong upuan at mesa.">
+                        <figcaption class="text-center italic text-sm mt-2 text-warm-brown opacity-75">Ang bawat sulok ay isang paanyaya—hindi lang para umupo, kundi para managinip.</figcaption>
+                    </figure>
+                </div>
+
+                <svg class="flourish-divider fade-in-section" viewBox="0 0 100 20"><path d="M0 10 C 20 0, 30 0, 50 10 S 80 20, 100 10"></path></svg>
+
+                <!-- Section 2: Middle with Alternating Layout -->
+                 <div class="fade-in-section flex flex-col md:flex-row-reverse items-center gap-8 my-8">
+                    <div class="md:w-1/2">
+                        <p class="text-lg leading-relaxed mb-4">
+                            Umupo kami sa isang sulok, nagtatawanan at nagkukuwentuhan. Umorder ako ng kanilang blueberry cheesecake—isang klasikong paborito. Ang bawat subo ay perpekto—matamis na may tamang asim, at creamy na natutunaw sa bibig. Ngunit habang nilalasap ko ito, napatingin ako sa display counter at doon ko nakita ang banana bread. Tahimik lang itong nakapuwesto, mukhang simple, ngunit doon na ako nahumaling.
+                        </p>
+                    </div>
+                    <figure class="md:w-1/2">
+                         <img class="rounded-lg shadow-md w-full h-auto object-cover" src="IMG_6455.jpg" alt="Ang aming inorder sa café, kasama ang blueberry cheesecake at matcha lattes.">
+                        <figcaption class="text-center italic text-sm mt-2 text-warm-brown opacity-75">Ang pamilyar na tamis. Masarap, ngunit sa sandaling iyon, ang mga mata ko ay naghahanap na ng ibang kwento.</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Pull Quote -->
+                <div class="fade-in-section text-center my-12">
+                    <p class="pull-quote text-2xl md:text-3xl italic border-y-2 border-dusty-rose py-4 inline-block">
+                        "Doon ko napagtanto na minsan, ang hindi natin natikman ang siyang nagbibigay ng pinakamatamis na aral."
+                    </p>
+                </div>
+                
+                <p class="fade-in-section text-lg leading-relaxed">
+                    Pag-uwi ko, hindi cheesecake ang naisip kong gawin kundi banana bread—pero nilagyan ko ng sariling twist. Hinaluan ko ito ng Biscoff spread at nilagyan ng biscuits bilang toppings, isang simpleng eksperimento na nagbigay ng kakaibang saya. Habang hinahalo ko ang harina, itlog, at saging, naisip ko na ang tunay na paglalakbay ay hindi lamang sa mismong lasa ng pagkain, kundi sa kakayahan nating makakita ng inspirasyon mula sa maliliit na bagay na madalas nating nakakaligtaan.
+                </p>
+
+                <figure class="fade-in-section my-8">
+                     <img class="rounded-lg shadow-md w-full h-auto object-cover" src="IMG_6451.jpg" alt="Ang display counter ng Kie and Bean, kung saan nagsimula ang inspirasyon.">
+                    <figcaption class="text-center italic text-sm mt-2 text-warm-brown opacity-75">Mula sa isang pagtingin, naging isang libangan. Dito nagsisimula ang aking sariling paglalakbay.</figcaption>
+                </figure>
+
+                <!-- Section 3: Conclusion -->
+                <p class="fade-in-section text-lg leading-relaxed">
+                    Simula pa noon, palagi na akong gumagala sa iba’t ibang café hindi lang para tumikim, kundi upang matuto at makahanap ng bagong ideya sa pagbebake. Bawat pagbisita ay nagiging bahagi ng mas malaking kwento. At doon ko natutunan: minsan, ang hindi natin natikman ang siyang mas nakakabighani, mas nakakapukaw ng inspirasyon. Sa huli, naiwan sa akin ang paalala na bawat tasa ng kape at bawat piraso ng tinapay ay maaaring maging simula ng panibagong inspirasyon.
+                </p>
+            </article>
+
+            <!-- Author's Note -->
+            <div class="fade-in-section mt-12 text-center">
+                <div class="inline-block p-6 bg-cream border border-dusty-rose/50 rounded-lg">
+                    <p class="text-md italic text-warm-brown/90">
+                        <strong>Isang Paalala mula kay Enya:</strong> Ang kwentong ito ay isang paggunita sa isang tunay na hapon na ginugol sa Kie and Bean. Ang Biscoff banana bread recipe na naging inspirasyon nito ay naging pangunahing pagkain na sa aking kusina—isang matamis na paalala na ang pinakamagandang inspirasyon ay madalas na matatagpuan kapag hindi mo ito hinahanap.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Traveler's Note Section -->
+            <div class="fade-in-section mt-12 border-t border-b border-dusty-rose/50 py-8 px-6 bg-cream rounded-lg">
+                <h3 class="font-bold text-xl text-warm-brown mb-4 text-center">Paalala ng Manlalakbay</h3>
+                <div class="text-center text-warm-brown/90">
+                    <p class="mb-4"><strong>Rekomendasyon:</strong> Huwag palampasin ang kanilang simpleng banana bread. Maaaring ito na ang inspirasyong hinahanap mo!</p>
+                    <img src="map-of-bukidnon.jpg" alt="Isang mapa na nagpapakita ng lokasyon ng Kie and Bean sa Lungsod ng Valencia, Bukidnon." class="mx-auto rounded-lg shadow-sm mb-4 w-full max-w-sm h-auto object-cover">
+                    <p><strong>Hanapin Sila:</strong> @kieandbeancafe (Instagram)</p>
+                </div>
+            </div>
+
+            <!-- About the Author Section -->
+            <div class="fade-in-section mt-12 pt-8 border-t border-dusty-rose/50 flex items-center gap-6">
+                <img class="w-20 h-20 rounded-full object-cover" src="enya-gerigdig-author-photo.jpg" alt="Larawan ni Enya A. Gerigdig">
+                <div>
+                    <h4 class="font-bold text-lg text-warm-brown">Tungkol kay Enya A. Gerigdig</h4>
+                    <p class="text-sm text-warm-brown/90">Si Enya ay isang masugid na home baker at mananalaysay, na ginalugad ang mundo sa bawat café. Nakahanap siya ng inspirasyon sa mga simpleng kagalakan ng paglalakbay, masarap na pagkain, at sa mga kwentong hatid nito.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="fade-in-section text-center mt-12 pt-8 pb-8 border-t border-dusty-rose/50">
+        <div class="container mx-auto max-w-4xl px-4">
+            <p class="text-md italic text-dusty-rose mb-4">“Ang paglalakbay ay hindi laging nasusukat sa layo, kundi sa mga munting inspirasyong naiiwan sa puso.”</p>
+            <p class="text-xs text-warm-brown/70">&copy; 2025 Blog ni Enya. Lahat ng Karapatan ay Nakalaan.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Bumalik sa Itaas" class="hidden fixed bottom-6 right-6 bg-dusty-rose text-white p-3 rounded-full shadow-lg hover:bg-warm-brown transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream focus:ring-warm-brown z-20">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+
+
+    <!-- Script for fade-in animation on scroll -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Intersection Observer for fade-in sections
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Back to Top Button Logic
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            };
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
+
